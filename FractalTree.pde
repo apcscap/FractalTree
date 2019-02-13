@@ -17,7 +17,7 @@ public void draw()
   count -= 1;
   if(count <= 10) 
     count = 100;
-  println(count);
+  // println(count);
 } 
 public void drawBranches(int x,int y, double branchLength, double angle) 
 {   
