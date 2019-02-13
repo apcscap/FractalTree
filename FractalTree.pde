@@ -1,10 +1,12 @@
 private double fractionLength = .8; 
 private int smallestBranch = 10; 
-private double branchAngle = .5;  
+private double branchAngle = .9;  
+public int count = 60;
 public void setup() 
 {   
-  size(640,480);    
-  noLoop(); 
+  size(640,580);
+  frameRate(20); 
+  // noLoop(); 
 } 
 public void draw() 
 {   
@@ -12,10 +14,18 @@ public void draw()
   stroke(0,255,0);   
   line(320,480,320,380);   
   drawBranches(320, 380, 100, 3*Math.PI/2);
+  count -= 1;
+  if(count <= 10) 
+    count = 100;
+  println(count);
 } 
 public void drawBranches(int x,int y, double branchLength, double angle) 
 {   
-  if(branchLength <= smallestBranch) { return;}
+  if(branchLength <= smallestBranch) { return; }
+  if(branchLength <= count) 
+    stroke(1, 50, 32);
+  else 
+    stroke(0, 255, 0);
   double angle1 = angle + branchAngle;
   double angle2 = angle - branchAngle;
   branchLength *= fractionLength;
